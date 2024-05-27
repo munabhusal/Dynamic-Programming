@@ -1,4 +1,7 @@
-def allConstruct(target, words):
+def allConstruct(target, words, memo = {}):
+    if(target in memo):
+        return memo[target]
+    
     if target == '':
         return [[]]
     
@@ -6,14 +9,14 @@ def allConstruct(target, words):
     for word in words:
         if target.find(word)==0:
             suffix = target[len(word):]
-            suffixWays = allConstruct(suffix, words)
+            suffixWays = allConstruct(suffix, words, memo)
             targetWays = list(map(lambda way: [word, *way],suffixWays))
-            # result.append(*targetWays)
             result.extend(targetWays)
             
+    memo[target] = result
     return result
 
 
-print(allConstruct('dsfds', ['ds','f','d', 's']))
+print(allConstruct('aaaaaaak', ['a','aa','aaa', 'aaaaa']))
 
 
