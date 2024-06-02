@@ -2,11 +2,13 @@
 
 The Fibonacci sequence is the series of numbers where each number is the sum of the two preceding numbers. For example, 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, …
 
-fib(n) = fib(n-1) + fib(n-2)
+
+formula: fib(n) = fib(n-1) + fib(n-2)
 
 
 
 ## Without using Any Dynamic Programming
+code: 
 
 So, while calculating fib(6),
 
@@ -33,7 +35,7 @@ here comes diagram
 
 time complexity is O(2^n)
 
-meaning to calulate fib(50), 2^50 steps needs to be calculated.
+Meaning to calulate fib(50), 2^50 steps needs to be calculated.
 
 space complexity is O(n)
 
@@ -47,6 +49,7 @@ Is there any solution??
 -if any duplicate work- We can work on optimality of the solution.
 
 ## Using Memoization to solve Fibonacci Series
+code: 
 
 In this approch, we use dictonary to store the data so that we can fetch the data from there rather then doing calculation.
 
@@ -69,6 +72,8 @@ time complexity is O(n)
 space complexity is O(n)
 
 ## Using Tabular Method to solve Fibonacci Series
+code: 
+
 
 In tabular approch, we solve the things iteratively insted of doing it recursively or storing values in dictonary
 
