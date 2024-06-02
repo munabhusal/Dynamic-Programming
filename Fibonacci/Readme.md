@@ -84,11 +84,9 @@ Step1: create a array (table) of length (n+1)
 Step2: Initialize zero value to everywhere and set the initial values as it should be in respective index. In this fib case, set index 0 to 0 ans index 1 to 1 .
 
 
-| ------- | ------- | ------ | ------- | ------ | ------- |
 | index 0 | index 1 | index 3| index 4 |index 5 | index 6 |
 | ------- | ------- | ------ | ------- | ------ | ------- |
 |    0    |    1    |    0   |    0    |    0    |    0   | 
-| ------- | ------- | ------ | ------- | ------ | ------- |
 
 Step 3:
 Iteration : Add the value of pivot to its next 2 element. Pivot index moves from 0 to nth index.
