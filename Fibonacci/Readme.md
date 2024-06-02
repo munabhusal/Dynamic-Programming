@@ -8,7 +8,7 @@ formula: fib(n) = fib(n-1) + fib(n-2)
 
 
 ## Without using Any Dynamic Programming
-code: 
+code: https://github.com/munabhusal/Dynamic-Programming/blob/master/Fibonacci/just_fibonacci.py
 
 So, while calculating fib(6),
 
@@ -49,7 +49,7 @@ Is there any solution??
 -if any duplicate work- We can work on optimality of the solution.
 
 ## Using Memoization to solve Fibonacci Series
-code: 
+code: https://github.com/munabhusal/Dynamic-Programming/blob/master/Fibonacci/fibonacci_tree.py
 
 In this approch, we use dictonary to store the data so that we can fetch the data from there rather then doing calculation.
 
@@ -72,17 +72,23 @@ time complexity is O(n)
 space complexity is O(n)
 
 ## Using Tabular Method to solve Fibonacci Series
-code: 
+code: https://github.com/munabhusal/Dynamic-Programming/blob/master/Fibonacci/fibonacci_table.py
 
 
 In tabular approch, we solve the things iteratively insted of doing it recursively or storing values in dictonary
+
+Lets calculate the value Fibonacci value for 6. i.e. fib(6).
 
 Step1: create a array (table) of length (n+1)
 
 Step2: Initialize zero value to everywhere and set the initial values as it should be in respective index. In this fib case, set index 0 to 0 ans index 1 to 1 .
 
-images!
 
+| ------- | ------- | ------ | ------- | ------ | ------- |
+| index 0 | index 1 | index 3| index 4 |index 5 | index 6 |
+| ------- | ------- | ------ | ------- | ------ | ------- |
+|    0    |    1    |    0   |    0    |    0    |    0   | 
+| ------- | ------- | ------ | ------- | ------ | ------- |
 
 Step 3:
 Iteration : Add the value of pivot to its next 2 element. Pivot index moves from 0 to nth index.
