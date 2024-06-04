@@ -9,4 +9,4 @@ def fiboncci_table(n):
     
     return(table[n])
 
-print(fiboncci_table(100))
+print(fiboncci_table(8))
