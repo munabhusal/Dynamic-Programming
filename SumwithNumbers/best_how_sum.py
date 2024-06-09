@@ -23,7 +23,7 @@ class FindBestHowOfSum:
                     best = ret_val.copy()
         return(best)
     
-#Using Dynamic programming Concept
+#Using Dynamic programming Concept(using memo)
     def best_howsum_wdp(self, target, list, mydict = {}):
         if(target in mydict):
             return mydict[target]
@@ -77,13 +77,37 @@ class FindBestHowOfSum:
                     best = new_node_point.copy()        
         mydict[target] = best
         return(best)
+    
+    # Using tabular method Dynamic programming Approch
+    def best_howsum_wdp_tabular(self, target, list):
+        table = [None] * (target+1)
+        table[0] =  []
+
+        for i in range(len(table)):
+            if table[i]!= None:
+                for j in list:
+                    if(i+j <= target):
+                        new_comb = table[i] + [j]
+                        if(table[i+j] != None):
+                            if(len(new_comb) < len(table[i+j])):
+                                table[i+j]= new_comb
+                        else:
+                            table[i+j]= new_comb 
+        
+        return table[target]
         
 obj = FindBestHowOfSum()
 
 start = time.time()
 res = obj.best_howsum_wdp(101, [5, 2 , 1])
 end = time.time()
-print(str(res) + '::  Using dynamic programming '+str(end-start))
+print(str(res) + '::  Using dynamic programming Memo Approch '+str(end-start))
+print ('____________________')
+
+start = time.time()
+res = obj.best_howsum_wdp_tabular(101, [5, 2 , 1])
+end = time.time()
+print(str(res) + '::  Using dynamic programming Tabular Approch '+str(end-start))
 print ('____________________')
 
 start = time.time()
