@@ -129,7 +129,7 @@ Iteration : Add the value of pivot (pivot will be represented as *) to its next 
 
 
 
+Here, 
+time complexity is O(n)  as we can get our value at nth iteration
 
-time complexity is O(n)
-
-space complexity is O(n)
+space complexity is O(n) as we allocate the n spaces to store the value as shown in above table, no temp space is reqiuired.
