@@ -29,6 +29,16 @@ def canconstructdp(string,wordlist, memo ={}):
     memo[string] = False
     return False
 
+def canconstructdp_tabular(string, wordlist):
+    table = [False] * (len(string)+1)
+    table[0] =  True
+
+    for i in range(len(string)):
+        if table[i] == True:
+            for word in wordlist:
+                pass
+
+
 
 string = 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet'
 wordlist = ['e','ee','eeeee']
