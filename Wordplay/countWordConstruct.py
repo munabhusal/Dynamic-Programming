@@ -21,9 +21,22 @@ def countWordConstructdp(string, wordslist, dict = {}):
             dict[string] = wordcount
     return wordcount
 
-string = 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-wordlist = ['ee','ee','eeeee']
+def countwordconstructdp_tabular(string, wordlist):
+    table = [0] * (len(string)+1)
+    table[0] =  1
 
+    for i in range(len(string)):
+        if table[i] == 1:
+            for word in wordlist:
+                if(string[slice(i,len(word)+i)] == word):
+                    table[i + len(word)] += table[i]        
+    return table[len(string)]
+
+string = 'abcdefgh'
+wordlist = ['ab','abc', 'de', 'fgh', 'cdefgh']
+
+
+
+print(countwordconstructdp_tabular(string, wordlist))
 print(countWordConstructdp(string, wordlist))
-print(countWordConstruct(string, wordlist))
-
+# print(countWordConstruct(string, wordlist))
