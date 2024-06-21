@@ -36,11 +36,12 @@ def canconstructdp_tabular(string, wordlist):
     for i in range(len(string)):
         if table[i] == True:
             for word in wordlist:
-                pass
+                if(string[slice(i,len(word)+ i)] == word):
+                    table[i + len(word)] = True
+        
+        return table[len(string)]
 
-
-
-string = 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet'
+string = 'eeeee'
 wordlist = ['e','ee','eeeee']
 
-print(canconstructdp(string, wordlist))
+print(canconstructdp_tabular(string, wordlist))
