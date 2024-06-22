@@ -16,7 +16,16 @@ def allConstruct(target, words, memo = {}):
     memo[target] = result
     return result
 
+def allConstruct_tabular(target, wordlist):
+    table  = [ [] for _ in range(len(target)+1) ]
+    table[0] = [[]]
+    for i in range(len(target)): 
+    
+        for word in wordlist:
+            if(len(table[i])> 0):
+                if(target[slice(i,len(word)+i)] == word): 
+                    add_me = list(filter(None, table[i][0] + [word]))
+                    table[i+len(word)].extend([add_me])     
 
-print(allConstruct('aaaaaaak', ['a','aa','aaa', 'aaaaa']))
-
-
+    return table[len(target)]
+print(allConstruct_tabular('abaaab', ['ab','aa', 'a', 'b']))
