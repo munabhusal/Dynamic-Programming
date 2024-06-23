@@ -1,0 +1,1 @@
+readme to play wwith word documentation.
