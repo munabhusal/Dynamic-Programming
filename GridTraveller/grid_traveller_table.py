@@ -1,24 +1,6 @@
-import numpy as np
-
 def grid_traveller__table(a, b):
-    table = np.zeros((a+1,b+1))
-    #putting 0 everywhere
-    # [
-    #     [0 ,0 ,0],
-    #     [0 ,0 ,0],
-    #     [0 ,0 ,0],
-    # ]
-
-
+    table = [[0 * (b+1)] for _ in range(a+1)]
     table[1][1] = 1
-    #  grid traveller of 1,1 return 1
-    # [
-    #     [0 ,0 ,0, 0],
-    #     [0 ,1 ,0, 0],
-    #     [0 ,0 ,0, 0],
-    #     [0 ,0 ,0, 0],
-    # ]
-
     for i in range(a+1):
         for j in range(b+1):
             curr_pos = table[i][j]
@@ -28,4 +10,4 @@ def grid_traveller__table(a, b):
            
     return table[a][b] #Returning the value within the final index.
 
-print(grid_traveller__table(30,30))
+print(grid_traveller__table(3,3))

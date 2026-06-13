@@ -1,4 +1,6 @@
 def fiboncci_table(n):
+    if n == 0:
+        return(0)
     table = [0] * (n+1)
     table[1] = 1
 
@@ -9,4 +11,4 @@ def fiboncci_table(n):
     
     return(table[n])
 
-print(fiboncci_table(8))
+print(fiboncci_table(0))

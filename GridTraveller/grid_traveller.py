@@ -3,7 +3,6 @@
 # Possible pathways can be found using the following code.
 
 import time
-import numpy as np
 class Grid_traveller:
     def __init__(self):
         self.__data = {}
@@ -37,7 +36,7 @@ class Grid_traveller:
 
 # Using Dynamic Programming (Tabular Approch)
     def gridTravellerPathCountTable(self,a,b):
-        table = np.zeros((a+1,b+1))
+        table = [[0 * (b+1)] for _ in range(a+1)]
         table[1][1] = 1
         for i in range(a+1):
             for j in range(b+1):
@@ -52,7 +51,7 @@ obj = Grid_traveller()
 
 # Observing Computation Time using Dynamic programming (memo)
 start = time.time()
-print(obj.gridTravellerPathCountMemo(8,30))
+print(obj.gridTravellerPathCountMemo(8,10))
 end = time.time()
 print('Total Available paths on gridTraveller of given grid using emo dynamic programming '+str(end-start))
 print('____________________________________________________________________')
@@ -60,7 +59,7 @@ print('____________________________________________________________________')
 
 # Observing Computation Time using Dynamic programming (table)
 start = time.time()
-print(obj.gridTravellerPathCountTable(8,30))
+print(obj.gridTravellerPathCountTable(8,10))
 end = time.time()
 print('Time to calculate the result using tabuler dynamic programming '+str(end-start))
 print('____________________________________________________________________')
@@ -68,7 +67,7 @@ print('____________________________________________________________________')
 
 # Observing Computation Time without using Dynamic programming 
 start = time.time()
-print(obj.gridTravellerPathCountno_dp(8,3))
+print(obj.gridTravellerPathCountno_dp(8,10))
 end = time.time()
 print('Time to calculate the result without using dynamic programming '+str(end-start))
 print('____________________________________________________________________')
