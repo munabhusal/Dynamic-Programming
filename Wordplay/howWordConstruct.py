@@ -1,10 +1,10 @@
-def allConstruct(target, words, memo = {}):
+def allConstruct(target, words, memo = None):
+    if memo is None:
+        memo = {}
     if(target in memo):
-        return memo[target]
-    
+        return memo[target]    
     if target == '':
-        return [[]]
-    
+        return [[]]    
     result =[]
     for word in words:
         if target.find(word)==0:
@@ -19,13 +19,11 @@ def allConstruct(target, words, memo = {}):
 def allConstruct_tabular(target, wordlist):
     table  = [ [] for _ in range(len(target)+1) ]
     table[0] = [[]]
-    for i in range(len(target)): 
-    
+    for i in range(len(target)):     
         for word in wordlist:
             if(len(table[i])> 0):
                 if(target[slice(i,len(word)+i)] == word): 
-                    add_me = list(filter(None, table[i][0] + [word]))
-                    table[i+len(word)].extend([add_me])     
-
+                    for way in table[i]:
+                        table[i+len(word)].append(way + [word])
     return table[len(target)]
-print(allConstruct_tabular('abaaab', ['ab','aa', 'a', 'b']))
+print(allConstruct_tabular('xxe', ['x','xe']))

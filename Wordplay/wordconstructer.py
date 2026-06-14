@@ -10,8 +10,9 @@ def canconstruct(string, wordslist):
     return False
 
 
-def canconstructdp(string,wordlist, memo ={}):
-    print(memo)
+def canconstructdp(string,wordlist, memo =None):
+    if memo is None:
+        memo = {}
     if(string in memo):return memo[string]
 
     if(string==''):
@@ -23,7 +24,6 @@ def canconstructdp(string,wordlist, memo ={}):
             if(canconstructdp(remaining , wordlist, memo) ==  True):
                 # print('hello')
                 memo[string] = True
-                print(memo)
                 return True
     
     memo[string] = False
@@ -39,7 +39,7 @@ def canconstructdp_tabular(string, wordlist):
                 if(string[slice(i,len(word)+ i)] == word):
                     table[i + len(word)] = True
         
-        return table[len(string)]
+    return table[len(string)]
 
 string = 'eeeee'
 wordlist = ['e','ee','eeeee']

@@ -8,7 +8,9 @@ def countWordConstruct(string, wordslist):
             wordcount = wordcount+ count
     return wordcount
 
-def countWordConstructdp(string, wordslist, dict = {}):
+def countWordConstructdp(string, wordslist, dict = None):
+    if dict is None:
+        dict = {}
     if(string in dict):
         return dict[string]
     if(string==''):return 1
@@ -16,9 +18,9 @@ def countWordConstructdp(string, wordslist, dict = {}):
     for word in wordslist:
         if(string.find(word) == 0):
             remaining = string.removeprefix(word)
-            count = countWordConstructdp(remaining , wordslist)
+            count = countWordConstructdp(remaining , wordslist, dict)
             wordcount = wordcount+ count
-            dict[string] = wordcount
+    dict[string] = wordcount
     return wordcount
 
 def countwordconstructdp_tabular(string, wordlist):
@@ -26,7 +28,7 @@ def countwordconstructdp_tabular(string, wordlist):
     table[0] =  1
 
     for i in range(len(string)):
-        if table[i] == 1:
+        if table[i] > 0:
             for word in wordlist:
                 if(string[slice(i,len(word)+i)] == word):
                     table[i + len(word)] += table[i]        
