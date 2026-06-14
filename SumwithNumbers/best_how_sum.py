@@ -24,7 +24,9 @@ class FindBestHowOfSum:
         return(best)
     
 #Using Dynamic programming Concept(using memo)
-    def best_howsum_wdp(self, target, list, mydict = {}):
+    def best_howsum_wdp(self, target, list, mydict = None):
+        if(mydict is None):
+            mydict = {}
         if(target in mydict):
             return mydict[target]
         if(target == 0):
@@ -34,7 +36,7 @@ class FindBestHowOfSum:
         best = None
         for num in list:
             remaining = target - num
-            ret_val = self.best_howsum_wdp(remaining , list)
+            ret_val = self.best_howsum_wdp(remaining , list, mydict)
             if(ret_val is not None) :  
                 new_node_point = ret_val + [num]
 

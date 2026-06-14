@@ -32,10 +32,10 @@ class CanSum:
             if(num>0):
                 remaining = number - num
                 ret_val = self.check_if_sum_exist_dp(remaining , list)
-                self.__mydict[remaining] = ret_val
                 if(ret_val == True):
+                    self.__mydict[number] = True
                     return True
-        self.__mydict[remaining] = False
+        self.__mydict[number] = False
         return False
     
     def check_if_sum_exist_dp_tabular(self, number, list):

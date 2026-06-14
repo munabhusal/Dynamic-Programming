@@ -19,8 +19,7 @@ class MoneyChangeSample:
             remaining = target - num
             ret_val = self.howsum_wdp(remaining , list)
             if(ret_val is not None) :   
-                self.temp1.append(num)
-                return self.temp1
+                return ret_val + [num]
             
     #Using Dynamic Programming concept
     def howsum_dp(self,target, list):
@@ -39,11 +38,14 @@ class MoneyChangeSample:
             #remaing will return [10-2, 10-5 , 10-5]=> when [] is returend in the recursion below, the amount is changable
                     
             ret_val = self.howsum_dp(remaining , list)
-            self.__dict[remaining]= ret_val
 
             if(ret_val is not None) :   #returning the changable amount list
-                self.temp.append(num)
-                return self.temp
+                result = ret_val + [num]
+                self.__dict[target] = result
+                return result
+            
+        self.__dict[target] = None
+        return None
 
 
     #Without using Dynamic Programming Tabular approch
@@ -62,19 +64,19 @@ class MoneyChangeSample:
 myobj = MoneyChangeSample()
 
 start = time.time()
-res = myobj.howsum_wdp(7, [2, 3])
+res = myobj.howsum_wdp(700, [2, 3])
 end = time.time()
 print(str(res) + '::  Without using dynamic programming '+str(end-start))
 print ('____________________')
 
 start = time.time()
-res = myobj.howsum_dp(7, [2, 3])
+res = myobj.howsum_dp(700, [2, 3])
 end = time.time()
 print(str(res) + '::  Using dynamic programming Tree Approch: '+str(end-start))
 print ('____________________')
 
 start = time.time()
-res = myobj.howsum_wdp_tabular(7, [2, 3])
+res = myobj.howsum_wdp_tabular(700, [2, 3])
 end = time.time()
 print(str(res) + '::  using dynamic programming Tabular Approch'+str(end-start))
 print ('____________________')
